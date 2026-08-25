@@ -35,19 +35,21 @@ export const HeroCard: React.FC<HeroCardProps> = ({
   const primaryPhone = config.phones.find(p => p.isPrimary) || config.phones[0];
   const primaryWhatsapp = config.socials.find(s => s.platform === 'whatsapp');
 
+  const OFFICIAL_SITE_URL = 'https://almekawy-home-official.vercel.app/';
+
   const handleShare = async () => {
     if (navigator.share) {
       try {
         await navigator.share({
-          title: `${config.companyNameAr} | UPVC`,
+          title: `${config.companyNameEn} | ${config.companyNameAr}`,
           text: `${config.companyNameAr} - ${config.taglineAr}`,
-          url: window.location.href
+          url: OFFICIAL_SITE_URL
         });
       } catch (e) {
         console.log('Share canceled');
       }
     } else {
-      const ok = await copyToClipboard(window.location.href);
+      const ok = await copyToClipboard(OFFICIAL_SITE_URL);
       if (ok) {
         setCopied(true);
         setTimeout(() => setCopied(false), 2500);

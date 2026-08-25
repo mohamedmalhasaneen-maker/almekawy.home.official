@@ -1,5 +1,5 @@
 import React from 'react';
-import { Globe, Calculator, ExternalLink } from 'lucide-react';
+import { Globe, Calculator, ExternalLink, QrCode } from 'lucide-react';
 import { CompanyConfig, AppLanguage } from '../types';
 import { BrandLogo } from './BrandLogo';
 
@@ -7,12 +7,14 @@ interface HeaderProps {
   config: CompanyConfig;
   lang: AppLanguage;
   onToggleLang: () => void;
+  onOpenQr?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
   config,
   lang,
-  onToggleLang
+  onToggleLang,
+  onOpenQr
 }) => {
   const isAr = lang === 'ar';
 
@@ -67,6 +69,19 @@ export const Header: React.FC<HeaderProps> = ({
             <span>{isAr ? 'عمل عرض سعر' : 'Get Quotation'}</span>
             <ExternalLink className="w-3.5 h-3.5" />
           </a>
+
+          {/* QR Code trigger */}
+          {onOpenQr && (
+            <button
+              id="header-qr-btn"
+              onClick={onOpenQr}
+              className="p-2 sm:px-3 sm:py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 text-xs sm:text-sm font-semibold flex items-center gap-1.5 transition-colors"
+              title={isAr ? 'عرض رمز QR' : 'Show QR Code'}
+            >
+              <QrCode className="w-4 h-4 text-amber-400" />
+              <span className="hidden md:inline">{isAr ? 'رمز QR' : 'QR Code'}</span>
+            </button>
+          )}
 
           {/* Language switch */}
           <button

@@ -66,6 +66,7 @@ export default function App() {
         config={config}
         lang={lang}
         onToggleLang={handleToggleLang}
+        onOpenQr={() => setIsQrOpen(true)}
       />
 
       {/* Main Page Content */}
