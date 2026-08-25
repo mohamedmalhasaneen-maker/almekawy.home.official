@@ -1,0 +1,6 @@
+{
+  "name": "Al-Mekawy Home UPVC - Contact & Social Hub",
+  "description": "منصة وبطاقة الاتصال الرقمية وخدمات الـ UPVC، وحسابات التواصل الاجتماعي، ونموذج المراسلة الرسمي وآراء العملاء لشركة المكاوي هوم للأبواب والشبابيك العازلة.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
